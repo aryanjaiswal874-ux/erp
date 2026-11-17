@@ -1,6 +1,6 @@
 FROM node:20-alpine
 
-# Install system dependencies for Puppeteer, MariaDB, and sharp
+# Install system dependencies for Puppeteer, MariaDB, and sharp (native builds)
 RUN apk add --no-cache \
     chromium \
     nss \
@@ -13,7 +13,9 @@ RUN apk add --no-cache \
     git \
     python3 \
     make \
-    g++
+    g++ \
+    pkgconfig \
+    libc6-compat
 
 # Tell Puppeteer to use system Chromium
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
