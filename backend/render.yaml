@@ -1,11 +1,11 @@
 services:
   - type: web
     name: namman-erp
-    env: node
+    env: docker
     region: singapore
     plan: free
-    buildCommand: npm ci
-    startCommand: node server.js
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
     healthCheckPath: /api/health
     envVars:
       # App
@@ -69,7 +69,6 @@ services:
         value: nammanhospital@gmail.com
       - key: SMTP_PASS
         value: namman@2015
-        # Note: For production, use "sync: false" and set manually in Render dashboard
         sync: false
       - key: DEFAULT_FROM_EMAIL
         value: nammanhospital@gmail.com
@@ -85,18 +84,6 @@ services:
         value: /usr/bin/chromium
       - key: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD
         value: "true"
-
-      # Optional - add if you use these
-      # - key: RAZORPAY_KEY_ID
-      #   value: your_key
-      # - key: RAZORPAY_KEY_SECRET
-      #   value: your_secret
-      #   sync: false
-      # - key: SMARTFLO_USER
-      #   value: your_user
-      # - key: SMARTFLO_PASS
-      #   value: your_pass
-      #   sync: false
 
 databases:
   - name: namman-db
