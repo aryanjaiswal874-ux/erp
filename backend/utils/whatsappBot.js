@@ -11,10 +11,25 @@ import path from "path";
 import fs from "fs-extra";
 import moment from "moment";
 
-// Use persistent volume path on Fly.io, fallback to local for dev
+// Use persistent volume path on Fly.io, Render, or local for dev
 const isProduction = process.env.NODE_ENV === "production";
-const AUTH_DIR = isProduction ? "/app/whatsapp_auth" : path.join(process.cwd(), "whatsapp_auth");
-const UPLOAD_DIR = isProduction ? "/app/uploads/whatsapp" : path.join(process.cwd(), "uploads/whatsapp");
+const isRender = process.env.RENDER === "true" || process.env.RENDER_SERVICE_ID;
+
+let AUTH_DIR, UPLOAD_DIR;
+
+if (isRender) {
+  // Render native Node.js: use project directory
+  AUTH_DIR = path.join(process.cwd(), "whatsapp_auth");
+  UPLOAD_DIR = path.join(process.cwd(), "uploads/whatsapp");
+} else if (isProduction) {
+  // Fly.io Docker: use mounted volumes
+  AUTH_DIR = "/app/whatsapp_auth";
+  UPLOAD_DIR = "/app/uploads/whatsapp";
+} else {
+  // Local development
+  AUTH_DIR = path.join(process.cwd(), "whatsapp_auth");
+  UPLOAD_DIR = path.join(process.cwd(), "uploads/whatsapp");
+}
 
 fs.ensureDirSync(AUTH_DIR);
 fs.ensureDirSync(UPLOAD_DIR);
