@@ -1,11 +1,11 @@
 services:
   - type: web
     name: namman-erp
-    env: docker
+    env: node
     region: singapore
     plan: free
-    dockerfilePath: Dockerfile
-    dockerContext: ./backend
+    buildCommand: cd backend && npm ci
+    startCommand: cd backend && node server.js
     healthCheckPath: /api/health
     envVars:
       # App
@@ -79,7 +79,7 @@ services:
       - key: CERT_SIGNATORY_ROLE
         value: "DR. MANOJ AGRAWAL (MDS, Oral & Maxillofacial Surgery)"
 
-      # Puppeteer (uses system chromium in build)
+      # Puppeteer - Render has chromium
       - key: PUPPETEER_EXECUTABLE_PATH
         value: /usr/bin/chromium
       - key: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD
