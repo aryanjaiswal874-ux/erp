@@ -69,7 +69,6 @@ services:
         value: nammanhospital@gmail.com
       - key: SMTP_PASS
         value: namman@2015
-        sync: false
       - key: DEFAULT_FROM_EMAIL
         value: nammanhospital@gmail.com
 
