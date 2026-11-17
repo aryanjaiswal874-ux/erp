@@ -1,0 +1,430 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+/* ╔══════════════════════════════════════════════════════════════════════════╗
+   ║                         THEME CONTROL PANEL                              ║
+   ║  Change values below to rebrand the entire ERP UI. All components,       ║
+   ║  buttons, sidebars, and scrollbars use these CSS variables.               ║
+   ╚══════════════════════════════════════════════════════════════════════════╝ */
+
+/* ── BLOCK 1: PRIMARY BRAND COLORS ─────────────────────────────────────────
+   Main brand color — buttons, links, active states, scrollbar
+   ───────────────────────────────────────────────────────────────────────── */
+:root {
+  --theme-primary: #2563eb;
+  --theme-primary-hover: #1d4ed8;
+  --theme-primary-light: #dbeafe;
+  --theme-primary-dark: #1e40af;
+}
+
+/* ── BLOCK 2: SECONDARY / ACCENT COLORS ────────────────────────────────────
+   Secondary actions, highlights, gradients
+   ───────────────────────────────────────────────────────────────────────── */
+:root {
+  --theme-secondary: #f97316;
+  --theme-secondary-hover: #ea580c;
+  --theme-secondary-light: #ffedd5;
+  --theme-accent: #06b6d4;
+  --theme-accent-light: #cffafe;
+}
+
+/* ── BLOCK 3: STATUS COLORS ────────────────────────────────────────────────
+   Success, warning, error, info states
+   ───────────────────────────────────────────────────────────────────────── */
+:root {
+  --theme-success: #10b981;
+  --theme-success-light: #d1fae5;
+  --theme-warning: #f59e0b;
+  --theme-warning-light: #fef3c7;
+  --theme-danger: #ef4444;
+  --theme-danger-light: #fee2e2;
+  --theme-info: #3b82f6;
+  --theme-info-light: #dbeafe;
+}
+
+/* ── BLOCK 4: BACKGROUND & SURFACE COLORS ───────────────────────────────────
+   Page backgrounds, cards, glass effects
+   ───────────────────────────────────────────────────────────────────────── */
+:root {
+  --theme-bg-page: #f8fafc;
+  --theme-bg-card: #ffffff;
+  --theme-bg-sidebar: #ffffff;
+  --theme-bg-header: #ffffff;
+  --theme-bg-input: #f1f5f9;
+  --theme-glass-bg: rgba(255, 255, 255, 0.95);
+  --theme-glass-border: rgba(226, 232, 240, 0.8);
+}
+
+/* ── BLOCK 5: TEXT COLORS ────────────────────────────────────────────────────
+   Headings, body text, muted text
+   ───────────────────────────────────────────────────────────────────────── */
+:root {
+  --theme-text-primary: #0f172a;
+  --theme-text-secondary: #475569;
+  --theme-text-muted: #94a3b8;
+  --theme-text-inverse: #ffffff;
+  --theme-text-link: var(--theme-primary);
+}
+
+/* ── BLOCK 6: BORDER & SHADOW ──────────────────────────────────────────────
+   Borders, dividers, shadows
+   ───────────────────────────────────────────────────────────────────────── */
+:root {
+  --theme-border: #e2e8f0;
+  --theme-border-light: #f1f5f9;
+  --theme-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --theme-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --theme-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* ── BLOCK 7: SIDEBAR THEME ──────────────────────────────────────────────────
+   Dashboard sidebar active/inactive states
+   ───────────────────────────────────────────────────────────────────────── */
+:root {
+  --theme-sidebar-active-bg: #0f172a;
+  --theme-sidebar-active-text: #ffffff;
+  --theme-sidebar-hover-bg: #f1f5f9;
+  --theme-sidebar-text: #475569;
+  --theme-sidebar-border: #e2e8f0;
+}
+
+/* ── BLOCK 8: TYPOGRAPHY ─────────────────────────────────────────────────────
+   Font families — change to rebrand typography
+   ───────────────────────────────────────────────────────────────────────── */
+:root {
+  --theme-font-heading: "Outfit", sans-serif;
+  --theme-font-body: "Inter", sans-serif;
+}
+
+/* ── BLOCK 9: AUTH PAGE THEME ──────────────────────────────────────────────
+   Login/signup page gradient and card styling
+   ───────────────────────────────────────────────────────────────────────── */
+:root {
+  --theme-auth-gradient-from: var(--theme-secondary);
+  --theme-auth-gradient-to: #e11d48;
+  --theme-auth-card-bg: rgba(255, 255, 255, 0.95);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TAILWIND THEME MAPPING — maps CSS variables to Tailwind utility classes
+   ═══════════════════════════════════════════════════════════════════════════ */
+/* ── BLOCK 10: ERP DYNAMIC THEME ─────────────────────────────────────────────
+   Change these variables to re-theme the entire ERP dashboard!
+   ───────────────────────────────────────────────────────────────────────── */
+:root {
+  --erp-primary: var(--theme-primary);
+  --erp-sidebar-bg: #ffffff;
+  --erp-sidebar-active-bg: #0f172a;
+  --erp-sidebar-active-text: #ffffff;
+  --erp-sidebar-hover-bg: #f8fafc;
+  --erp-sidebar-text: #475569;
+  --erp-header-bg: #ffffff;
+  --erp-page-bg: #f8fafc;
+  
+  /* Module Colors */
+  --erp-module-dashboard: #3b82f6; /* blue */
+  --erp-module-hr: #6366f1;        /* indigo */
+  --erp-module-crm: #f43f5e;       /* rose */
+  --erp-module-comm: #f97316;      /* orange */
+  --erp-module-config: #475569;    /* slate */
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TAILWIND THEME MAPPING — maps CSS variables to Tailwind utility classes
+   ═══════════════════════════════════════════════════════════════════════════ */
+@theme {
+  --color-primary: var(--theme-primary);
+  --color-primary-hover: var(--theme-primary-hover);
+  --color-primary-light: var(--theme-primary-light);
+  --color-secondary: var(--theme-secondary);
+  --color-secondary-hover: var(--theme-secondary-hover);
+  --color-accent: var(--theme-accent);
+  --color-success: var(--theme-success);
+  --color-warning: var(--theme-warning);
+  --color-danger: var(--theme-danger);
+  --color-page-bg: var(--theme-bg-page);
+  --color-card-bg: var(--theme-bg-card);
+  --color-text-primary: var(--theme-text-primary);
+  --color-text-secondary: var(--theme-text-secondary);
+  --color-text-muted: var(--theme-text-muted);
+  --color-border: var(--theme-border);
+
+  /* ERP Variables */
+  --color-erp-primary: var(--erp-primary);
+  --color-erp-sidebar-bg: var(--erp-sidebar-bg);
+  --color-erp-sidebar-active-bg: var(--erp-sidebar-active-bg);
+  --color-erp-sidebar-active-text: var(--erp-sidebar-active-text);
+  --color-erp-sidebar-hover-bg: var(--erp-sidebar-hover-bg);
+  --color-erp-sidebar-text: var(--erp-sidebar-text);
+  --color-erp-header-bg: var(--erp-header-bg);
+  --color-erp-page-bg: var(--erp-page-bg);
+
+  --color-erp-module-dashboard: var(--erp-module-dashboard);
+  --color-erp-module-hr: var(--erp-module-hr);
+  --color-erp-module-crm: var(--erp-module-crm);
+  --color-erp-module-comm: var(--erp-module-comm);
+  --color-erp-module-config: var(--erp-module-config);
+
+  --font-heading: var(--theme-font-heading);
+  --font-body: var(--theme-font-body);
+}
+
+@layer base {
+  html {
+    font-size: 13px;
+  }
+  body {
+    font-family: var(--theme-font-body);
+    background-color: var(--theme-bg-page);
+    color: var(--theme-text-primary);
+    @apply antialiased;
+    scroll-behavior: smooth;
+  }
+
+  button,
+  [role="button"],
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"],
+  a,
+  select,
+  summary,
+  [tabindex]:not([tabindex="-1"]) {
+    cursor: pointer;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--theme-font-heading);
+    color: var(--theme-text-primary);
+  }
+
+  h1 { @apply text-3xl md:text-4xl lg:text-5xl font-bold; }
+  h2 { @apply text-2xl md:text-3xl font-semibold; }
+  h3 { @apply text-xl md:text-2xl font-semibold; }
+  h4 { @apply text-lg md:text-xl font-medium; }
+  h5 { @apply text-base md:text-lg font-medium; }
+  h6 { @apply text-sm md:text-base font-medium; }
+
+  p {
+    @apply text-base;
+    color: var(--theme-text-secondary);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    background-color: var(--theme-primary);
+    color: var(--theme-text-inverse);
+    @apply px-5 py-2.5 font-semibold text-base rounded-lg transition-all active:scale-95 shadow-md flex items-center justify-center gap-2;
+  }
+  .btn-primary:hover {
+    background-color: var(--theme-primary-hover);
+  }
+
+  .btn-secondary {
+    background-color: var(--theme-secondary);
+    color: var(--theme-text-inverse);
+    @apply px-5 py-2.5 font-semibold text-base rounded-lg transition-all active:scale-95 shadow-md flex items-center justify-center gap-2;
+  }
+  .btn-secondary:hover {
+    background-color: var(--theme-secondary-hover);
+  }
+
+  .glass-card {
+    background: var(--theme-glass-bg);
+    border: 1px solid var(--theme-glass-border);
+    @apply backdrop-blur-sm rounded-lg shadow-lg;
+  }
+
+  .section-padding {
+    @apply py-12 md:py-16 px-4 md:px-8 lg:px-16;
+  }
+
+  .erp-input {
+    background-color: var(--theme-bg-input);
+    border: 1px solid var(--theme-border);
+    color: var(--theme-text-primary);
+    @apply block w-full rounded-lg text-sm font-medium px-4 py-2.5 outline-none transition-all;
+  }
+  .erp-input:focus {
+    border-color: var(--theme-primary);
+    box-shadow: 0 0 0 3px var(--theme-primary-light);
+    background-color: var(--theme-bg-card);
+  }
+
+  .erp-card {
+    background-color: var(--theme-bg-card);
+    border: 1px solid var(--theme-border);
+    @apply rounded-xl shadow-sm;
+  }
+
+  .erp-sidebar-active {
+    background-color: var(--theme-sidebar-active-bg);
+    color: var(--theme-sidebar-active-text);
+  }
+
+  .rich-text-preview ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .rich-text-preview ol {
+    list-style-type: decimal;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .rich-text-preview a {
+    color: var(--theme-secondary);
+    text-decoration: underline;
+  }
+}
+
+/* Custom Scrollbar — uses theme primary color */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--theme-border-light);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--theme-primary);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-primary-hover);
+}
+
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MOBILE RESPONSIVE ENHANCEMENTS — App-like experience on phones & tablets
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Safe area support for notch devices (iPhone etc.) */
+@supports (padding: max(0px)) {
+  .mobile-safe-bottom {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* Bottom navigation bar for mobile */
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-top: 1px solid var(--theme-border);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.35rem 0.5rem;
+  padding-bottom: max(0.35rem, env(safe-area-inset-bottom));
+}
+
+.mobile-bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 0.3rem 0.75rem;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+  min-width: 56px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-bottom-nav-item.active {
+  background: var(--theme-primary-light);
+  color: var(--theme-primary);
+}
+
+.mobile-bottom-nav-item:not(.active) {
+  color: var(--theme-text-muted);
+}
+
+.mobile-bottom-nav-item span {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* Ensure touch targets are min 44px on mobile */
+@media (max-width: 768px) {
+  button, [role="button"], a, select, input[type="submit"] {
+    min-height: 40px;
+  }
+  
+  /* Prevent zoom on input focus (iOS) */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+
+  /* Add bottom padding to main content to avoid bottom nav overlap */
+  .mobile-main-content {
+    padding-bottom: 5rem !important;
+  }
+
+  /* Table responsive wrapper */
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Compact card spacing on mobile */
+  .erp-card {
+    border-radius: 0.75rem;
+  }
+  
+  /* Full-width modals on mobile */
+  .modal-content-mobile {
+    max-width: 100% !important;
+    margin: 0.5rem !important;
+    border-radius: 1rem !important;
+    max-height: 95vh;
+    overflow-y: auto;
+  }
+}
+
+/* Tablet breakpoint adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .mobile-bottom-nav {
+    display: none;
+  }
+}
+
+/* Desktop — hide bottom nav */
+@media (min-width: 769px) {
+  .mobile-bottom-nav {
+    display: none;
+  }
+}
+
+/* Smooth page transitions */
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideInFromBottom 0.3s ease-out;
+}

@@ -1,0 +1,8 @@
+file:///D:/Current%20Projects/SBGM/New%20folder/backend/routes/smartfloRoutes.js:2
+import { protect, admin } from "../middlewares/authMiddleware.js";
+                  ^^^^^
+SyntaxError: The requested module '../middlewares/authMiddleware.js' does not provide an export named 'admin'
+    at ModuleJob._instantiate (node:internal/modules/esm/module_job:175:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:258:5)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:540:24)
+    at async importModuleDynamicallyWrapper (node:internal/vm/module:434:15)

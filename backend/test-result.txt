@@ -1,0 +1,1 @@
+SUCCESS: {"idCardUrl":"/uploads/mak/idcard-testm123_final.png","certificateUrl":"/uploads/mak/certificate-testm123_final.png"}

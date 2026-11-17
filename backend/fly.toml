@@ -1,0 +1,54 @@
+app = "namman-erp-backend"
+primary_region = "bom"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  NODE_ENV = "production"
+  PORT = "8080"
+  # Puppeteer config
+  PUPPETEER_EXECUTABLE_PATH = "/usr/bin/chromium"
+  PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = "true"
+  # Timezone
+  TZ = "Asia/Kolkata"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ["app"]
+
+  # Health checks
+  [http_service.checks]
+    interval = "30s"
+    timeout = "10s"
+    grace_period = "60s"
+    method = "GET"
+    path = "/api/health"
+
+[[vm]]
+  memory = "256mb"
+  cpu_kind = "shared"
+  cpus = 1
+
+# Persistent volumes for WhatsApp auth + uploads
+[mounts]
+  source = "whatsapp_auth"
+  destination = "/app/whatsapp_auth"
+
+  source = "uploads"
+  destination = "/app/uploads"
+
+# Optional: Scale config (free tier allows 1 VM)
+[[services]]
+  protocol = "tcp"
+  internal_port = 8080
+  processes = ["app"]
+  [services.ports]
+    port = 80
+    handlers = ["http"]
+    port = 443
+    handlers = ["tls", "http"]
