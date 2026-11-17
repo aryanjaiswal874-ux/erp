@@ -20,8 +20,8 @@
     }
   ],
   "env": {
-    "VITE_API_BASE_URL": "@vite_api_base_url",
-    "VITE_API_BASE_URL_IMG": "@vite_api_base_url_img",
+    "VITE_API_BASE_URL": "https://namman-erp.onrender.com/api",
+    "VITE_API_BASE_URL_IMG": "https://namman-erp.onrender.com",
     "VITE_BASE_PATH": "/"
   }
 }
