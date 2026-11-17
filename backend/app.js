@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import swaggerUi from "swagger-ui-express";
 import { swaggerSpec } from "./config/swagger.js";
 import path from "path";
+import fs from "fs";
 import compression from "compression";
 import apicache from "apicache";
 import mailRoutes from "./routes/mail.routes.js";
